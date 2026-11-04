@@ -8,33 +8,44 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <div class="progress" id="progress" aria-hidden="true"></div>
+
   <header class="top">
     <a class="brand" href="#top">Do<span>.</span></a>
     <nav>
       <a href="#journey">Hành trình</a>
       <a href="#works">Việc đã làm</a>
-      <a href="#contact">Liên hệ</a>
+      <a class="cta" href="#contact">Liên hệ</a>
     </nav>
   </header>
 
   <main id="top">
-    <!-- HERO: học theo kiểu web mẫu — tên lớn, một câu định vị, không rườm rà -->
-    <section class="hero">
-      <p class="eyebrow">Short-form Creator — làm video ngắn mỗi ngày</p>
-      <h1>Do<br><span>làm video ngắn<br>mà người ta xem tới cuối.</span></h1>
-      <p class="hero-sub">Từ một trang game, một vụ án 60 giây, tới một nhân vật hoạt hình 3D — mọi thứ đều bắt đầu từ một ý tưởng đủ hay để giữ người xem ở lại.</p>
-      <div class="hero-links">
-        <a class="btn" href="#works">Xem việc đã làm ↓</a>
-        <a class="btn ghost" href="#contact">Liên hệ</a>
+    <!-- HERO: gần full màn hình, gradient mềm, chữ nền khổng lồ mờ, hạt nhiễu mịn -->
+    <section class="hero" id="hero">
+      <div class="hero-bg" aria-hidden="true">DO</div>
+      <div class="grain" aria-hidden="true"></div>
+      <div class="hero-inner">
+        <p class="eyebrow anim">Short-form Creator — làm video ngắn mỗi ngày</p>
+        <h1 class="anim d1">Do<br>làm video ngắn<br><span class="accent-line">mà người ta xem tới cuối.</span></h1>
+        <p class="hero-sub anim d2">Từ một trang game, một vụ án 60 giây, tới một nhân vật hoạt hình 3D — mọi thứ đều bắt đầu từ một ý tưởng đủ hay để giữ người xem ở lại.</p>
+        <div class="hero-links anim d3">
+          <a class="btn" href="#works">Xem việc đã làm ↓</a>
+          <a class="btn ghost" href="#contact">Liên hệ</a>
+        </div>
+        <p class="scroll-hint anim d3">Cuộn xuống ↓</p>
       </div>
     </section>
 
-    <!-- JOURNEY: cấu trúc 01–05 giống web mẫu, nhưng nội dung là của Sếp, không copy tiểu sử của người khác -->
-    <section id="journey" class="journey">
-      <h2 class="section-title">Hành trình</h2>
+    <div class="marquee" aria-hidden="true"><div class="marquee-track">
+      <span>Trang game ✦ 60 giây thử tài ✦ Explainer ✦ What if ✦ Hoạt hình 3D ✦&nbsp;</span>
+      <span>Trang game ✦ 60 giây thử tài ✦ Explainer ✦ What if ✦ Hoạt hình 3D ✦&nbsp;</span>
+    </div></div>
 
-      <article class="chapter">
-        <div class="num">01</div>
+    <section id="journey" class="journey">
+      <h2 class="section-title reveal">Hành trình</h2>
+
+      <article class="chapter reveal">
+        <div class="num">[01]</div>
         <div class="body">
           <p class="kicker">THE PAGES</p>
           <h3>Làm trang game, đăng mỗi ngày</h3>
@@ -43,8 +54,8 @@
         </div>
       </article>
 
-      <article class="chapter">
-        <div class="num">02</div>
+      <article class="chapter reveal">
+        <div class="num">[02]</div>
         <div class="body">
           <p class="kicker">THE SERIES</p>
           <h3>60 giây — một bí ẩn</h3>
@@ -53,8 +64,8 @@
         </div>
       </article>
 
-      <article class="chapter">
-        <div class="num">03</div>
+      <article class="chapter reveal">
+        <div class="num">[03]</div>
         <div class="body">
           <p class="kicker">THE SCRIPTS</p>
           <h3>Kịch bản giải thích, kiểu mới</h3>
@@ -63,8 +74,8 @@
         </div>
       </article>
 
-      <article class="chapter">
-        <div class="num">04</div>
+      <article class="chapter reveal">
+        <div class="num">[04]</div>
         <div class="body">
           <p class="kicker">THE 3D</p>
           <h3>Từ nhân vật tới khung hình</h3>
@@ -73,8 +84,8 @@
         </div>
       </article>
 
-      <article class="chapter">
-        <div class="num">05</div>
+      <article class="chapter reveal">
+        <div class="num">[05]</div>
         <div class="body">
           <p class="kicker">NOW</p>
           <h3>Làm cùng AI, mỗi ngày</h3>
@@ -85,37 +96,26 @@
     </section>
 
     <section id="works" class="works">
-      <h2 class="section-title">Việc đã làm</h2>
+      <h2 class="section-title reveal">Việc đã làm</h2>
       <div class="grid">
-        <article class="card">
-          <h3>Trùm Game V</h3>
-          <p>Trang tin Valorant — nhiều bài mỗi ngày, ưu tiên lineup/bug nóng, fallback là tin chung nóng nhất trong ngày.</p>
-        </article>
-        <article class="card">
-          <h3>The Games</h3>
-          <p>Trang game tổng hợp — trailer, tin tức, bài vui, bài báo chí, chia theo khung giờ trong ngày.</p>
-        </article>
-        <article class="card">
-          <h3>60 Giây Thử Tài</h3>
-          <p>Series trinh thám ngắn: tình huống kết thúc bằng câu hỏi, video sau công bố đáp án.</p>
-        </article>
-        <article class="card">
-          <h3>Page Phét</h3>
-          <p>Dòng nhân vật phẳng, mỗi kịch bản một nhân vật khác nhau, caption lấy từ hook đầu video.</p>
-        </article>
-        <article class="card">
-          <h3>Short hoạt hình 3D</h3>
-          <p>Nhân vật, bối cảnh văn phòng, test video ngắn trước khi làm video dài.</p>
-        </article>
-        <article class="card">
-          <h3>Phantom Blade Zero</h3>
-          <p>Tóm tắt cốt truyện kèm voice-over tiếng Việt, đối chiếu tên nhân vật theo bản trong game.</p>
-        </article>
+        <article class="card reveal"><h3>Trùm Game V <span class="arrow">→</span></h3><p>Trang tin Valorant — nhiều bài mỗi ngày, ưu tiên lineup/bug nóng, fallback là tin chung nóng nhất trong ngày.</p></article>
+        <article class="card reveal"><h3>The Games <span class="arrow">→</span></h3><p>Trang game tổng hợp — trailer, tin tức, bài vui, bài báo chí, chia theo khung giờ trong ngày.</p></article>
+        <article class="card reveal"><h3>60 Giây Thử Tài <span class="arrow">→</span></h3><p>Series trinh thám ngắn: tình huống kết thúc bằng câu hỏi, video sau công bố đáp án.</p></article>
+        <article class="card reveal"><h3>Page Phét <span class="arrow">→</span></h3><p>Dòng nhân vật phẳng, mỗi kịch bản một nhân vật khác nhau, caption lấy từ hook đầu video.</p></article>
+        <article class="card reveal"><h3>Short hoạt hình 3D <span class="arrow">→</span></h3><p>Nhân vật, bối cảnh văn phòng, test video ngắn trước khi làm video dài.</p></article>
+        <article class="card reveal"><h3>Phantom Blade Zero <span class="arrow">→</span></h3><p>Tóm tắt cốt truyện kèm voice-over tiếng Việt, đối chiếu tên nhân vật theo bản trong game.</p></article>
       </div>
-      <p class="note">Muốn đổi tên, link hay mô tả của mục nào — Sếp chỉ cần sửa đúng chỗ đó trong file <code>index.html</code>, không cần đụng tới code khác.</p>
+      <p class="note reveal">Muốn đổi tên, link hay mô tả của mục nào — Sếp chỉ cần sửa đúng chỗ đó trong file <code>index.html</code>, không cần đụng tới code khác.</p>
     </section>
 
-    <section id="contact" class="contact">
+    <!-- Dải tối toàn chiều rộng: tạo nhịp sáng–tối giữa phần việc đã làm và liên hệ -->
+    <section class="dark-band reveal" aria-label="Triết lý làm video">
+      <p class="dark-kicker">— LÀM VIDEO NGẮN</p>
+      <h2>Một ý tưởng hay,<br>giữ người xem tới cuối.</h2>
+      <p class="dark-sub">Ngắn · Nóng · Đúng giờ · Không trùng — bốn chữ đó áp cho cả trang tin, cả kịch bản, cả một shot hoạt hình.</p>
+    </section>
+
+    <section id="contact" class="contact reveal">
       <h2>Làm một video<br>cùng nhau không?</h2>
       <p>Gửi Sếp ý tưởng, Sếp sẽ trả lời bằng một bản nháp ngắn trước — không hứa suông.</p>
       <!-- SẾP ĐIỀN LINK THẬT VÀO ĐÂY: thay # bằng link Facebook / YouTube / TikTok / email -->
@@ -132,6 +132,7 @@
     <p class="small">Lấy cảm hứng cấu trúc từ duycuf.vn, nội dung viết lại hoàn toàn.</p>
   </footer>
 
+  <button class="to-top" id="toTop" aria-label="Về đầu trang">↑</button>
   <script src="script.js"></script>
 </body>
 </html>
