@@ -368,14 +368,18 @@ footer p:last-child { text-align: right; }
 .video-poster img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; display: block; }
 .video-duration { position: absolute; right: 14px; bottom: 14px; background: rgba(0,0,0,.75); color: #fff; font-size: 13px; font-weight: 700; padding: 4px 10px; border-radius: 999px; }
 
-/* Cai tien hero 2026-11-04 (theo anh chup man hinh): bo chu nen gay roi, cot chu rong hon, anh tap trung vao Sep */
+/* Cai tien hero 2026-11-04: bo chu nen, cot chu rong hon (chi desktop, de mobile van xep chong dung) */
 .hero-bg { display: none; }
-.hero-inner { grid-template-columns: 1.25fr .75fr; gap: 56px; }
-.hero-photo img { object-position: 70% 78%; height: 520px; }
-.hero-chips { flex-wrap: nowrap; }
+@media (min-width: 1025px) {
+  .hero-inner { grid-template-columns: 1.25fr .75fr; gap: 56px; }
+  .hero-photo img { object-position: 70% 78%; height: 520px; }
+  .hero-chips { flex-wrap: nowrap; }
+}
 @media (max-width: 1024px) {
+  .hero-inner { grid-template-columns: 1fr; }
+  .hero-photo { width: 100%; }
+  .hero-photo img { height: auto; max-height: 420px; object-position: center 30%; }
   .hero-chips { flex-wrap: wrap; }
-  .hero-photo img { object-position: center 30%; }
 }
 .chip { white-space: nowrap; flex-shrink: 0; }
 
