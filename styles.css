@@ -560,3 +560,23 @@ html { scroll-behavior: smooth; }
 @media (max-width: 720px) {
   .about, .projects, .products, .skills, .journey, .process, .contact { padding: 72px 6vw; }
 }
+
+/* Ra soat vong tiep 2026-11-04: About khong con trong, Process 5 cot can doi, nut Facebook cam chinh */
+.about-pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 36px; }
+.about-pillars > div { background: var(--bg); border: 1px solid var(--line); border-radius: 20px; padding: 24px; transition: transform .3s ease, box-shadow .3s ease; }
+.about-pillars > div:hover { transform: translateY(-4px); box-shadow: 0 16px 32px rgba(0,0,0,.08); }
+.about-pillars strong { font-size: 20px; letter-spacing: -.01em; }
+.about-pillars p { color: var(--muted); margin: 8px 0 0; font-size: 15px; }
+@media (min-width: 1025px) {
+  #process .grid { grid-template-columns: repeat(5, 1fr); }
+  #process .card { padding: 22px; }
+  #process .card h3 { font-size: 19px; }
+}
+@media (max-width: 1024px) {
+  #process .grid { grid-template-columns: repeat(2, 1fr); }
+}
+.btn.accent { background: var(--accent); color: #fff; border: 1.5px solid var(--accent); }
+.btn.accent:hover { background: #d93208; }
+@media (max-width: 720px) {
+  .about-pillars { grid-template-columns: 1fr; }
+}
