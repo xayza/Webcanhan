@@ -112,3 +112,11 @@ document.querySelectorAll(".video-player").forEach((player) => {
   video.addEventListener("play", () => player.classList.add("playing"));
   video.addEventListener("pause", () => player.classList.remove("playing"));
 });
+
+// Header co bong khi cuon xuong (hieu ung chuyen nghiep, nhe).
+const topBar = document.querySelector(".top");
+if (topBar) {
+  const onTopScroll = () => topBar.classList.toggle("scrolled", window.scrollY > 20);
+  window.addEventListener("scroll", onTopScroll, { passive: true });
+  onTopScroll();
+}

@@ -524,3 +524,24 @@ footer a { color: #ffb199; }
 .marquee-slogan { padding: 9px 0; font-size: 13px; font-weight: 700; letter-spacing: .22em; color: rgba(255, 255, 255, .85); border-top: 1px solid rgba(255, 77, 28, .45); }
 .marquee-slogan .marquee-track { animation-duration: 28s; }
 .marquee-slogan .sep { color: var(--accent); font-size: 11px; }
+
+/* Anh cao dai hon + hieu ung chuyen nghiep 2026-11-04: anh hero ti le 4/5, cuon mem, header co bong khi cuon, nut sang quet, dai toi co sao */
+html { scroll-behavior: smooth; }
+::selection { background: var(--accent); color: #fff; }
+.hero-photo img { aspect-ratio: 4 / 5; object-position: 65% center; }
+.hero-photo { transition: transform .5s ease; }
+.hero-photo:hover { transform: translateY(-4px); }
+.hero-photo img { transition: transform .6s ease; }
+.hero-photo:hover img { transform: scale(1.02); }
+.top { transition: box-shadow .3s ease; }
+.top.scrolled { box-shadow: 0 12px 32px rgba(0, 0, 0, .16); }
+.btn { position: relative; overflow: hidden; }
+.btn::after { content: ""; position: absolute; inset: 0; background: linear-gradient(105deg, transparent 40%, rgba(255, 255, 255, .35) 50%, transparent 60%); transform: translateX(-120%); transition: transform .6s ease; pointer-events: none; }
+.btn:hover::after { transform: translateX(120%); }
+.section-title::after { transform: scaleX(0); transform-origin: left; transition: transform .7s ease .15s; }
+.section-title.visible::after { transform: scaleX(1); }
+.dark-band { background-image: radial-gradient(1.5px 1.5px at 12% 22%, rgba(255,255,255,.7) 50%, transparent 51%), radial-gradient(1px 1px at 28% 68%, rgba(255,255,255,.5) 50%, transparent 51%), radial-gradient(1.5px 1.5px at 48% 18%, rgba(255,255,255,.6) 50%, transparent 51%), radial-gradient(1px 1px at 66% 55%, rgba(255,255,255,.5) 50%, transparent 51%), radial-gradient(1.5px 1.5px at 82% 28%, rgba(255,255,255,.7) 50%, transparent 51%), radial-gradient(1px 1px at 92% 70%, rgba(255,255,255,.45) 50%, transparent 51%); }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .btn::after { display: none; }
+}
