@@ -545,3 +545,18 @@ html { scroll-behavior: smooth; }
   html { scroll-behavior: auto; }
   .btn::after { display: none; }
 }
+
+/* Sua loi Sep 2026-11-04: cac muc ben duoi phai full man hinh nhu hero, khong ket trong main 1080px */
+.about, .projects, .products, .skills, .journey, .process, .contact {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  padding: 120px max(6vw, calc((100vw - 1280px) / 2));
+  box-sizing: border-box;
+}
+.about, .skills, .process { border-left: none; border-right: none; }
+.top { width: min(1280px, calc(100% - 32px)); }
+.hero-inner { width: min(1280px, 100%); }
+.dark-inner { max-width: 1280px; }
+@media (max-width: 720px) {
+  .about, .projects, .products, .skills, .journey, .process, .contact { padding: 72px 6vw; }
+}
