@@ -79,14 +79,35 @@ if ("IntersectionObserver" in window) {
   });
 }
 
-// San pham: bam nut phat la xem ngay tai cho, video khac tu dung neu dang phat.
+// San pham: bam nut phat -> tai cac file chunk base64, ghep thanh video, phat ngay tai cho.
 document.querySelectorAll(".video-player").forEach((player) => {
   const video = player.querySelector("video");
   const btn = player.querySelector(".play-btn");
   if (!video || !btn) return;
-  btn.addEventListener("click", () => {
-    document.querySelectorAll(".video-player video").forEach((v) => { if (v !== video) v.pause(); });
-    video.play();
+  btn.addEventListener("click", async () => {
+    if (video.src) { video.play(); return; }
+    const original = btn.textContent;
+    btn.textContent = "…"; btn.disabled = true;
+    try {
+      document.querySelectorAll(".video-player video").forEach((v) => { if (v !== video) v.pause(); });
+      const prefix = player.dataset.prefix;
+      const count = parseInt(player.dataset.chunks, 10);
+      const parts = [];
+      for (let i = 0; i < count; i++) {
+        const res = await fetch("assets/video/" + prefix + "-" + String(i).padStart(2, "0") + ".txt");
+        if (!res.ok) throw new Error("chunk missing");
+        parts.push(await res.text());
+      }
+      const b64 = parts.join("").trim();
+      const bin = atob(b64);
+      const bytes = new Uint8Array(bin.length);
+      for (let i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
+      video.src = URL.createObjectURL(new Blob([bytes], { type: "video/mp4" }));
+      await video.play();
+    } catch (e) {
+      btn.textContent = original; btn.disabled = false;
+      alert("Không tải được video, vui lòng thử lại sau ít phút.");
+    }
   });
   video.addEventListener("play", () => player.classList.add("playing"));
   video.addEventListener("pause", () => player.classList.remove("playing"));
