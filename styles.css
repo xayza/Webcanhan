@@ -64,15 +64,21 @@ main { max-width: 1080px; margin: 0 auto; padding: 0 6vw; }
   display: flex; align-items: center;
   background: linear-gradient(128deg, #e3efff 0%, #f6efe3 52%, #ffdcc8 100%);
 }
-.hero-inner { position: relative; z-index: 2; width: min(1080px, 100%); margin: 0 auto; padding: 150px 6vw 84px; }
+.hero-inner { position: relative; z-index: 2; width: min(1080px, 100%); margin: 0 auto; padding: 150px 6vw 84px; display: grid; grid-template-columns: 1.15fr .85fr; gap: 48px; align-items: center; }
+.hero-photo { position: relative; margin: 0; }
+.hero-photo img { width: 100%; height: 560px; object-fit: cover; object-position: center 30%; border-radius: 28px; box-shadow: 0 24px 48px rgba(0,0,0,.18); display: block; }
+.hero-photo .orbit-badge { position: absolute; right: -18px; bottom: -18px; width: 120px; height: 120px; background: rgba(255,255,255,.92); border-radius: 50%; padding: 8px; box-shadow: 0 12px 28px rgba(0,0,0,.18); }
+.contact-grid { display: grid; grid-template-columns: 1.2fr .8fr; gap: 48px; align-items: center; }
+.contact-photo { margin: 0; }
+.contact-photo img { width: 100%; height: 440px; object-fit: cover; object-position: center 20%; border-radius: 24px; box-shadow: 0 18px 36px rgba(0,0,0,.12); display: block; }
 /* Chữ nền: chìm hẳn vào nền, nằm sát mép phải/dưới, không đè lên chữ chính.
    Trên màn hẹp chuyển lên góc trên-phải và thu nhỏ để không lấn nút bấm. */
 .hero-bg {
   position: absolute; right: 0; bottom: 0; z-index: 0;
   transform: translateY(14%);
-  font-size: clamp(160px, 26vw, 360px); font-weight: 900; line-height: .8;
+  font-size: clamp(140px, 24vw, 300px); font-weight: 900; line-height: .85;
   letter-spacing: -.06em; color: rgba(20, 20, 20, .04); user-select: none;
-  pointer-events: none; white-space: nowrap;
+  pointer-events: none; text-align: right;
 }
 /* Hạt nhiễu thật bằng SVG feTurbulence, rất mờ, chỉ phủ hero, không nặng trang */
 .grain {
@@ -319,4 +325,12 @@ footer p:last-child { text-align: right; }
   .chip .dot, .orbit-badge svg, .hero h1 .accent-line { animation: none; }
   .hero h1 .accent-line { background-size: 100% .28em; }
   .hero::after { display: none; }
+}
+
+/* Anh hero: badge xoay nằm góc ảnh, không còn absolute ở góc hero */
+.hero-photo .orbit-badge { position: absolute; right: -18px; bottom: -18px; }
+@media (max-width: 900px) {
+  .hero-inner, .contact-grid { grid-template-columns: 1fr; }
+  .hero-photo img { height: 420px; }
+  .contact-photo img { height: 360px; }
 }

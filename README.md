@@ -1,8 +1,8 @@
-# Do — Portfolio web
+# Sơn Đào — Portfolio web
 
 Web portfolio 1 trang, lấy cảm hứng cấu trúc từ duycuf.vn
 (hero + 5 mục hành trình đánh số 01–05 + việc đã làm + liên hệ),
-nhưng nội dung viết lại hoàn toàn theo công việc của Do.
+nhưng nội dung viết lại hoàn toàn theo công việc của Sơn Đào.
 Không framework, không cần build.
 
 ## Chạy local
@@ -16,7 +16,7 @@ python3 -m http.server 8000
 # mở http://localhost:8000
 ```
 
-## Sếp cần sửa những gì trước khi đăng
+## Cần sửa những gì trước khi đăng
 
 1. **Tên / câu định vị** ở đầu `index.html` (thẻ `<h1>` trong `.hero`).
 2. **Link liên hệ** ở cuối `index.html` — hiện đang để `#`, thay bằng
