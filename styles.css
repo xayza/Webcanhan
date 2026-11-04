@@ -216,3 +216,107 @@ footer p:last-child { text-align: right; }
   .reveal { opacity: 1; transform: none; transition: none; }
   html { scroll-behavior: auto; }
 }
+
+/* ===== V5 — điểm nhấn sáng tạo, vẫn nhẹ và sạch ===== */
+/* 1. Hero: chip trạng thái + spotlight theo chuột + gạch quét cam + badge xoay */
+.hero-chips { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 22px; }
+.chip {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 7px 14px; border: 1px solid rgba(0,0,0,.10); border-radius: 999px;
+  background: rgba(255,255,255,.72); backdrop-filter: blur(6px);
+  font-size: 13px; font-weight: 700; color: #3a362f;
+}
+.chip .dot { width: 8px; height: 8px; border-radius: 50%; background: #22a06b; animation: pulse-dot 2.2s infinite; }
+@keyframes pulse-dot { 0%,100% { box-shadow: 0 0 0 0 rgba(34,160,107,.45); } 50% { box-shadow: 0 0 0 6px rgba(34,160,107,0); } }
+
+.hero::after {
+  content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none; opacity: 0; transition: opacity .5s ease;
+  background: radial-gradient(320px circle at var(--mx, 70%) var(--my, 30%), rgba(255,255,255,.55), transparent 70%);
+}
+.hero.spotlight::after { opacity: 1; }
+
+.hero h1 .accent-line {
+  background: linear-gradient(var(--accent), var(--accent)) no-repeat 0 96% / 0% .28em;
+  animation: sweep 1s cubic-bezier(.22,.61,.21,1) .7s forwards;
+}
+@keyframes sweep { to { background-size: 100% .28em; } }
+
+.orbit-badge {
+  position: absolute; right: max(6vw, calc(50% - 540px + 6vw)); bottom: 56px; z-index: 2;
+  width: 120px; height: 120px; pointer-events: none;
+}
+.orbit-badge svg { width: 100%; height: 100%; animation: spin 18s linear infinite; }
+.orbit-badge text { font-size: 10.5px; letter-spacing: 2.2px; font-weight: 800; fill: #6b6259; }
+.orbit-center {
+  position: absolute; inset: 0; margin: auto; width: 44px; height: 44px; border-radius: 50%;
+  background: var(--accent); color: #fff; display: flex; align-items: center; justify-content: center;
+  font-size: 16px; padding-left: 3px; box-shadow: 0 10px 24px rgba(240,61,14,.35);
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* 2. Hành trình: vạch nhấn trái mọc lên khi rê chuột, nền mềm */
+.chapter { position: relative; border-radius: 14px; overflow: hidden; }
+.chapter::before {
+  content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 4px;
+  background: linear-gradient(var(--accent), #ff8a3d);
+  transform: scaleY(0); transform-origin: top; transition: transform .35s ease;
+}
+.chapter:hover::before { transform: scaleY(1); }
+.chapter:hover { background: linear-gradient(90deg, #fff, #fff8f1); box-shadow: 0 14px 30px rgba(0,0,0,.06); }
+
+/* 3. Thẻ việc: ô chữ đầu + vạch gradient trên cùng, nâng và xoay nhẹ khi hover */
+.card { position: relative; overflow: hidden; }
+.card::before {
+  content: ""; position: absolute; left: 0; right: 0; top: 0; height: 4px;
+  background: linear-gradient(90deg, var(--accent), #ff8a3d, #ffdcc8);
+  transform: scaleX(0); transform-origin: left; transition: transform .4s ease;
+}
+.card:hover::before { transform: scaleX(1); }
+.card-mark {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 46px; height: 46px; margin-bottom: 16px; border-radius: 13px;
+  background: var(--accent-soft); color: var(--accent);
+  font-size: 17px; font-weight: 900; letter-spacing: -.02em;
+  transition: transform .35s ease, background .35s ease, color .35s ease;
+}
+.card:hover .card-mark { transform: rotate(-6deg) scale(1.06); background: var(--accent); color: #fff; }
+
+/* 4. Dải tối: nền sao CSS thuần + gạch quét cam cho tiêu đề khi hiện */
+.dark-band {
+  background:
+    radial-gradient(1.5px 1.5px at 12% 28%, #fff 50%, transparent 51%),
+    radial-gradient(1.5px 1.5px at 78% 18%, #fff 50%, transparent 51%),
+    radial-gradient(2px 2px at 42% 72%, #fff 50%, transparent 51%),
+    radial-gradient(1.5px 1.5px at 88% 62%, #fff 50%, transparent 51%),
+    radial-gradient(1.5px 1.5px at 26% 82%, #fff 50%, transparent 51%),
+    linear-gradient(180deg, #1d1915, #12100e);
+}
+.dark-band h2 {
+  background: linear-gradient(var(--accent), var(--accent)) no-repeat 0 97% / 0% .22em;
+  transition: background-size 1s cubic-bezier(.22,.61,.21,1) .25s;
+}
+.dark-band.visible h2 { background-size: 42% .22em; }
+
+/* 5. Liên hệ: 3 bước ngắn + nav đang xem được gạch chân */
+.contact-steps {
+  display: flex; gap: 12px; flex-wrap: wrap; list-style: none; margin: 28px 0 32px; padding: 0;
+}
+.contact-steps li {
+  display: flex; align-items: center; gap: 10px; padding: 11px 18px;
+  border: 1px solid var(--line); border-radius: 999px; background: #fff;
+  font-weight: 700; font-size: 15px; transition: transform .3s ease, border-color .3s ease;
+}
+.contact-steps li:hover { transform: translateY(-2px); border-color: var(--accent); }
+.contact-steps li span { color: var(--accent); font-size: 13px; letter-spacing: .06em; }
+.top nav a.active { color: var(--ink); }
+.top nav a.active::after { transform: scaleX(1); transform-origin: left; }
+
+@media (max-width: 720px) {
+  .orbit-badge { display: none; }
+  .hero-chips { margin-bottom: 18px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .chip .dot, .orbit-badge svg, .hero h1 .accent-line { animation: none; }
+  .hero h1 .accent-line { background-size: 100% .28em; }
+  .hero::after { display: none; }
+}

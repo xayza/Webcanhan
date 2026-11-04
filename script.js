@@ -37,3 +37,44 @@ if ("IntersectionObserver" in window) {
   // Trình duyệt cũ không có IntersectionObserver: hiện hết, không để trang trắng.
   revealEls.forEach((el) => el.classList.add("visible"));
 }
+
+// V5: spotlight hero theo chuột + gạch chân nav theo section đang xem.
+// Tất cả đều tắt khi người dùng bật giảm chuyển động, và không chạy trên cảm ứng.
+const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const finePointer = window.matchMedia("(pointer: fine)").matches;
+
+const hero = document.getElementById("hero");
+if (hero && finePointer && !reducedMotion) {
+  let spotTicking = false;
+  hero.addEventListener("pointermove", (e) => {
+    if (spotTicking) return;
+    spotTicking = true;
+    requestAnimationFrame(() => {
+      const r = hero.getBoundingClientRect();
+      hero.style.setProperty("--mx", ((e.clientX - r.left) / r.width * 100) + "%");
+      hero.style.setProperty("--my", ((e.clientY - r.top) / r.height * 100) + "%");
+      hero.classList.add("spotlight");
+      spotTicking = false;
+    });
+  }, { passive: true });
+  hero.addEventListener("pointerleave", () => hero.classList.remove("spotlight"));
+}
+
+const navLinks = {};
+document.querySelectorAll(".top nav a[href^='#']").forEach((a) => {
+  navLinks[a.getAttribute("href").slice(1)] = a;
+});
+if ("IntersectionObserver" in window) {
+  const navIo = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      if (e.isIntersecting && navLinks[e.target.id]) {
+        Object.values(navLinks).forEach((a) => a.classList.remove("active"));
+        navLinks[e.target.id].classList.add("active");
+      }
+    });
+  }, { rootMargin: "-40% 0px -55% 0px" });
+  ["journey", "works", "contact"].forEach((id) => {
+    const el = document.getElementById(id);
+    if (el) navIo.observe(el);
+  });
+}
