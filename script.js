@@ -73,8 +73,21 @@ if ("IntersectionObserver" in window) {
       }
     });
   }, { rootMargin: "-40% 0px -55% 0px" });
-  ["journey", "works", "products", "contact"].forEach((id) => {
+  ["about", "projects", "skills", "journey", "process", "products", "contact"].forEach((id) => {
     const el = document.getElementById(id);
     if (el) navIo.observe(el);
   });
 }
+
+// San pham: bam nut phat la xem ngay tai cho, video khac tu dung neu dang phat.
+document.querySelectorAll(".video-player").forEach((player) => {
+  const video = player.querySelector("video");
+  const btn = player.querySelector(".play-btn");
+  if (!video || !btn) return;
+  btn.addEventListener("click", () => {
+    document.querySelectorAll(".video-player video").forEach((v) => { if (v !== video) v.pause(); });
+    video.play();
+  });
+  video.addEventListener("play", () => player.classList.add("playing"));
+  video.addEventListener("pause", () => player.classList.remove("playing"));
+});
