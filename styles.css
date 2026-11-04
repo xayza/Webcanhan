@@ -503,3 +503,13 @@ footer a { color: #ffb199; }
   .video-card { padding: 20px; }
   .contact-photo img { height: 360px; }
 }
+
+/* Sua loi Sếp chup 2026-11-04: marquee phai full chieu rong that, khong ket trong khung main 1080px */
+.marquee-slogan { width: 100vw; margin-left: calc(50% - 50vw); }
+
+/* Theo anh Sếp gui 2026-11-04: anh o goc phai, nen gradient nhu anh mau, co chu nen SON DAO hien day du, khong bi cat mep */
+.hero .hero-bg { display: block; left: 0; right: 0; bottom: 6px; top: auto; transform: none; text-align: right; padding-right: 2vw; white-space: nowrap; font-size: clamp(72px, 15vw, 200px); line-height: 1; letter-spacing: -.03em; color: rgba(20, 20, 20, .08); z-index: 0; }
+.hero-inner, .hero-photo { z-index: 2; }
+@media (max-width: 720px) {
+  .hero .hero-bg { font-size: 58px; bottom: 10px; }
+}
