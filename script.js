@@ -73,7 +73,7 @@ if ("IntersectionObserver" in window) {
       }
     });
   }, { rootMargin: "-40% 0px -55% 0px" });
-  ["journey", "works", "contact"].forEach((id) => {
+  ["journey", "works", "products", "contact"].forEach((id) => {
     const el = document.getElementById(id);
     if (el) navIo.observe(el);
   });
