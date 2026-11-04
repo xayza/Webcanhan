@@ -1,0 +1,82 @@
+/* Portfolio 1 trang, kiểu tối giản như web mẫu: chữ lớn, khoảng trắng nhiều, không màu mè. */
+:root {
+  --bg: #faf9f6;
+  --ink: #141414;
+  --muted: #6b6b6b;
+  --line: #e3ddd2;
+  --accent: #c2410c;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.65;
+}
+a { color: inherit; }
+.top {
+  position: sticky; top: 0; z-index: 10;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 18px 6vw; background: rgba(250, 249, 246, .92);
+  backdrop-filter: blur(8px); border-bottom: 1px solid var(--line);
+}
+.brand { font-weight: 800; font-size: 22px; text-decoration: none; letter-spacing: -.02em; }
+.brand span { color: var(--accent); }
+.top nav { display: flex; gap: 22px; }
+.top nav a { text-decoration: none; font-size: 15px; color: var(--muted); }
+.top nav a:hover { color: var(--ink); }
+main { max-width: 1080px; margin: 0 auto; padding: 0 6vw; }
+.hero { padding: 88px 0 72px; }
+.eyebrow, .kicker {
+  font-size: 13px; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--accent); font-weight: 700; margin: 0 0 18px;
+}
+.hero h1 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(44px, 8vw, 88px); line-height: 1.02; letter-spacing: -.03em; margin: 0;
+}
+.hero h1 span { color: var(--muted); font-weight: 400; }
+.hero-sub { max-width: 620px; font-size: 19px; color: #333; margin: 28px 0; }
+.hero-links { display: flex; gap: 12px; flex-wrap: wrap; }
+.btn {
+  display: inline-block; padding: 12px 22px; border-radius: 999px;
+  background: var(--ink); color: #fff; text-decoration: none; font-weight: 600;
+}
+.btn.ghost { background: transparent; color: var(--ink); border: 1px solid var(--ink); }
+.section-title {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(32px, 5vw, 52px); margin: 0 0 40px; letter-spacing: -.02em;
+}
+.journey, .works, .contact { padding: 72px 0; border-top: 1px solid var(--line); }
+.chapter {
+  display: grid; grid-template-columns: 90px 1fr; gap: 28px;
+  padding: 36px 0; border-top: 1px solid var(--line);
+}
+.num { font-family: Georgia, serif; font-size: 40px; color: var(--accent); line-height: 1; }
+.chapter h3 { font-family: Georgia, serif; font-size: 30px; line-height: 1.25; margin: 0 0 12px; }
+.chapter p { max-width: 680px; margin: 0 0 12px; }
+.tags { font-size: 14px; color: var(--muted); letter-spacing: .02em; }
+.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.card { border: 1px solid var(--line); border-radius: 16px; padding: 24px; background: #fff; }
+.card h3 { margin: 0 0 8px; font-size: 20px; }
+.card p { margin: 0; color: #444; font-size: 15px; }
+.note { color: var(--muted); font-size: 15px; margin-top: 20px; }
+.contact h2 {
+  font-family: Georgia, serif; font-size: clamp(36px, 6vw, 64px);
+  line-height: 1.1; letter-spacing: -.02em; margin: 0 0 16px;
+}
+.contact p { max-width: 560px; }
+footer {
+  max-width: 1080px; margin: 0 auto; padding: 28px 6vw 48px;
+  border-top: 1px solid var(--line); color: var(--muted); font-size: 14px;
+}
+footer p { margin: 4px 0; }
+@media (max-width: 720px) {
+  .grid { grid-template-columns: 1fr; }
+  .chapter { grid-template-columns: 56px 1fr; gap: 16px; }
+  .num { font-size: 28px; }
+  .top nav { gap: 14px; }
+  .hero { padding: 56px 0 48px; }
+}
