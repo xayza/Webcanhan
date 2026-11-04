@@ -467,3 +467,39 @@ footer p:last-child { text-align: right; }
   .hero-full .hero-links .btn.ghost { color: var(--ink); border-color: var(--line); }
   .hero-full .chip { background: #fff; }
 }
+
+/* Cai tien ngay 2026-11-04 (theo yeu cau cua Sep): nhip manh hon, tieu de lon hon, video noi bat hon, footer toi */
+main > section { scroll-margin-top: 96px; }
+.about, .projects, .products, .skills, .journey, .process, .contact { padding: 110px 0; }
+.section-title { font-size: clamp(40px, 6vw, 64px); margin-bottom: 16px; }
+.section-title::after { content: ""; display: block; width: 56px; height: 5px; background: var(--accent); border-radius: 999px; margin-top: 18px; }
+.products-intro { font-size: 18px; margin-bottom: 36px; }
+.about-sub { font-size: clamp(22px, 3vw, 32px); font-weight: 800; letter-spacing: -.02em; line-height: 1.25; color: var(--ink); margin-bottom: 24px; }
+.about-text p:first-child { font-size: 20px; font-weight: 700; color: var(--ink); }
+.about-text p { font-size: 18px; line-height: 1.75; }
+.hero-full h1 { font-size: clamp(48px, 6.5vw, 88px); }
+.card { border-radius: 24px; padding: 30px; box-shadow: 0 6px 20px rgba(0,0,0,.04); }
+.card:hover { transform: translateY(-7px); box-shadow: 0 24px 44px rgba(0,0,0,.12); }
+.card h3 { font-size: 22px; }
+.card-mark { width: 44px; height: 44px; font-size: 16px; }
+.video-card { padding: 28px; gap: 32px; box-shadow: 0 10px 30px rgba(0,0,0,.06); }
+.video-card:hover { transform: translateY(-5px); box-shadow: 0 28px 52px rgba(0,0,0,.14); }
+.video-player video { transition: transform .5s ease; }
+.video-card:hover .video-player video { transform: scale(1.04); }
+.play-btn { width: 88px; height: 88px; font-size: 30px; }
+.video-body h3 { font-size: 27px; }
+.video-body .video-meta { display: inline-block; background: var(--accent-soft); color: var(--accent); padding: 7px 12px; border-radius: 999px; font-weight: 800; }
+.project-row h3 { font-size: 28px; }
+.chapter { border-left: 3px solid transparent; }
+.chapter:hover { border-left-color: var(--accent); }
+.chapter .num { color: var(--accent); }
+.contact h2 { font-size: clamp(36px, 5vw, 60px); }
+.contact-photo img { height: 480px; border: 6px solid #fff; }
+footer { background: #161310; color: #cfc8bd; padding: 36px 6vw; text-align: center; }
+footer a { color: #ffb199; }
+.to-top { background: var(--accent); border-color: var(--accent); }
+@media (max-width: 720px) {
+  .about, .projects, .products, .skills, .journey, .process, .contact { padding: 72px 0; }
+  .video-card { padding: 20px; }
+  .contact-photo img { height: 360px; }
+}
