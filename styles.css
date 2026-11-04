@@ -420,3 +420,9 @@ footer p:last-child { text-align: right; }
   .project-row h3 { font-size: 21px; }
   .hero-stats { gap: 18px; }
 }
+
+/* Hien full anh Sep 2026-11-04: anh hero vuong goc, khong crop, khong vom cat goc */
+.hero-photo img { border-radius: 28px; height: auto; aspect-ratio: 1 / 1; object-fit: cover; object-position: center; }
+@media (max-width: 1024px) {
+  .hero-photo img { max-height: none; }
+}
