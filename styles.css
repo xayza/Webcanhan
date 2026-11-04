@@ -513,3 +513,14 @@ footer a { color: #ffb199; }
 @media (max-width: 720px) {
   .hero .hero-bg { font-size: 58px; bottom: 10px; }
 }
+
+/* Chu nen SON DAO dep hon 2026-11-04: chu gradient cam -> muc nhat, vien mo, khong con la khoi xam phang */
+.hero .hero-bg { font-size: clamp(64px, 13vw, 180px); letter-spacing: -.02em; color: rgba(255, 77, 28, .16); }
+@supports ((-webkit-background-clip: text) or (background-clip: text)) {
+  .hero .hero-bg { color: transparent; background: linear-gradient(90deg, rgba(255, 77, 28, .30) 0%, rgba(255, 77, 28, .14) 45%, rgba(20, 20, 20, .10) 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-stroke: 1px rgba(20, 20, 20, .10); }
+}
+
+/* Dai chay chay be lai + dep hon 2026-11-04: chu nho, thua, nhe, dau sao cam, chay cham hon */
+.marquee-slogan { padding: 9px 0; font-size: 13px; font-weight: 700; letter-spacing: .22em; color: rgba(255, 255, 255, .85); border-top: 1px solid rgba(255, 77, 28, .45); }
+.marquee-slogan .marquee-track { animation-duration: 28s; }
+.marquee-slogan .sep { color: var(--accent); font-size: 11px; }
