@@ -580,3 +580,10 @@ html { scroll-behavior: smooth; }
 @media (max-width: 720px) {
   .about-pillars { grid-template-columns: 1fr; }
 }
+
+/* Ra soat vong tiep 2026-11-05: Video co thoi luong ro, Journey so thanh pill cam, footer co slogan */
+.chapter .num { display: inline-block; height: fit-content; background: var(--accent-soft); color: var(--accent); border-radius: 999px; padding: 8px 14px; font-size: 14px; letter-spacing: .06em; }
+.chapter h3 { font-size: 32px; }
+.footer-slogan { color: #ffb199; font-weight: 800; letter-spacing: -.01em; font-size: 18px; margin-bottom: 10px; }
+.video-body { max-width: 640px; }
+.video-body h3 { font-size: 28px; }
